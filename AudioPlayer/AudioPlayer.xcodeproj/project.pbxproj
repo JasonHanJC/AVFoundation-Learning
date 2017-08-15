@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96C6C6FD1F42BEB7006F0F44 /* JHAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */; };
 		96F3F7B11F42AF95008F9821 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F7B01F42AF95008F9821 /* AppDelegate.m */; };
 		96F3F7B41F42AF95008F9821 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F7B31F42AF95008F9821 /* ViewController.m */; };
 		96F3F7B71F42AF95008F9821 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F3F7B51F42AF95008F9821 /* Main.storyboard */; };
 		96F3F7B91F42AF95008F9821 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96F3F7B81F42AF95008F9821 /* Assets.xcassets */; };
 		96F3F7BC1F42AF95008F9821 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96F3F7BA1F42AF95008F9821 /* LaunchScreen.storyboard */; };
 		96F3F7BF1F42AF95008F9821 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F7BE1F42AF95008F9821 /* main.m */; };
+		96F3F7C71F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96F3F7C51F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 */; };
+		96F3F7C81F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96F3F7C61F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96C6C6FB1F42BEB7006F0F44 /* JHAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioPlayer.h; sourceTree = "<group>"; };
+		96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioPlayer.m; sourceTree = "<group>"; };
 		96F3F7AC1F42AF95008F9821 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F3F7AF1F42AF95008F9821 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96F3F7B01F42AF95008F9821 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -24,8 +29,10 @@
 		96F3F7B61F42AF95008F9821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96F3F7B81F42AF95008F9821 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96F3F7BB1F42AF95008F9821 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96F3F7BD1F42AF95008F9821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96F3F7BE1F42AF95008F9821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		96F3F7BD1F42AF95008F9821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Supporting Files/Info.plist"; sourceTree = "<group>"; };
+		96F3F7BE1F42AF95008F9821 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		96F3F7C51F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3"; sourceTree = "<group>"; };
+		96F3F7C61F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "381353__waveplay__120-bpm-basic-drum-loop.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +65,30 @@
 		96F3F7AE1F42AF95008F9821 /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				96F3F7C91F42B0E0008F9821 /* Sound Files */,
 				96F3F7AF1F42AF95008F9821 /* AppDelegate.h */,
 				96F3F7B01F42AF95008F9821 /* AppDelegate.m */,
 				96F3F7B21F42AF95008F9821 /* ViewController.h */,
 				96F3F7B31F42AF95008F9821 /* ViewController.m */,
+				96C6C6FB1F42BEB7006F0F44 /* JHAudioPlayer.h */,
+				96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */,
 				96F3F7B51F42AF95008F9821 /* Main.storyboard */,
-				96F3F7B81F42AF95008F9821 /* Assets.xcassets */,
 				96F3F7BA1F42AF95008F9821 /* LaunchScreen.storyboard */,
 				96F3F7BD1F42AF95008F9821 /* Info.plist */,
 				96F3F7BE1F42AF95008F9821 /* main.m */,
+				96F3F7B81F42AF95008F9821 /* Assets.xcassets */,
 			);
 			path = AudioPlayer;
+			sourceTree = "<group>";
+		};
+		96F3F7C91F42B0E0008F9821 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				96F3F7C51F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 */,
+				96F3F7C61F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav */,
+			);
+			name = "Sound Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +150,9 @@
 			files = (
 				96F3F7BC1F42AF95008F9821 /* LaunchScreen.storyboard in Resources */,
 				96F3F7B91F42AF95008F9821 /* Assets.xcassets in Resources */,
+				96F3F7C81F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav in Resources */,
 				96F3F7B71F42AF95008F9821 /* Main.storyboard in Resources */,
+				96F3F7C71F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +166,7 @@
 				96F3F7B41F42AF95008F9821 /* ViewController.m in Sources */,
 				96F3F7BF1F42AF95008F9821 /* main.m in Sources */,
 				96F3F7B11F42AF95008F9821 /* AppDelegate.m in Sources */,
+				96C6C6FD1F42BEB7006F0F44 /* JHAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C2VVZK2VN8;
-				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AudioPlayer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AudioPlayer;
@@ -288,7 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C2VVZK2VN8;
-				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AudioPlayer/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AudioPlayer;
@@ -316,6 +339,7 @@
 				96F3F7C41F42AF95008F9821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
