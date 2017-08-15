@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96A8BB771F436CEA000493AC /* head2-01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96A8BB761F436CE9000493AC /* head2-01.jpg */; };
 		96C6C6FD1F42BEB7006F0F44 /* JHAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */; };
 		96F3F7B11F42AF95008F9821 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F7B01F42AF95008F9821 /* AppDelegate.m */; };
 		96F3F7B41F42AF95008F9821 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F3F7B31F42AF95008F9821 /* ViewController.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96A8BB761F436CE9000493AC /* head2-01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "head2-01.jpg"; path = "../../../../Google Drive/Heads/head2-01.jpg"; sourceTree = "<group>"; };
 		96C6C6FB1F42BEB7006F0F44 /* JHAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioPlayer.h; sourceTree = "<group>"; };
 		96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioPlayer.m; sourceTree = "<group>"; };
 		96F3F7AC1F42AF95008F9821 /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				96C6C6FC1F42BEB7006F0F44 /* JHAudioPlayer.m */,
 				96F3F7B51F42AF95008F9821 /* Main.storyboard */,
 				96F3F7BA1F42AF95008F9821 /* LaunchScreen.storyboard */,
+				96A8BB761F436CE9000493AC /* head2-01.jpg */,
 				96F3F7BD1F42AF95008F9821 /* Info.plist */,
 				96F3F7BE1F42AF95008F9821 /* main.m */,
 				96F3F7B81F42AF95008F9821 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				96F3F7BC1F42AF95008F9821 /* LaunchScreen.storyboard in Resources */,
 				96F3F7B91F42AF95008F9821 /* Assets.xcassets in Resources */,
 				96F3F7C81F42B093008F9821 /* 381353__waveplay__120-bpm-basic-drum-loop.wav in Resources */,
+				96A8BB771F436CEA000493AC /* head2-01.jpg in Resources */,
 				96F3F7B71F42AF95008F9821 /* Main.storyboard in Resources */,
 				96F3F7C71F42B093008F9821 /* 362832__4barrelcarb__nylon-string-guitar-with-steel-string-bass.mp3 in Resources */,
 			);
@@ -212,6 +216,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -265,6 +271,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;

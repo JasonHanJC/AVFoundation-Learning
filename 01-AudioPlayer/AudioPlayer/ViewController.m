@@ -19,10 +19,14 @@
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider_1;
 @property (weak, nonatomic) IBOutlet UISlider *volumeSlider_2;
 @property (weak, nonatomic) IBOutlet UISlider *rateSlider;
+@property (weak, nonatomic) IBOutlet UILabel *decibelLabel_1;
+@property (weak, nonatomic) IBOutlet UILabel *decibelLabel_2;
+
+@property (strong, nonatomic) CADisplayLink *displayLink;
 
 @end
 
-float const defaultPan = 0.5;
+float const defaultPan = 0;
 float const defaultVolume = 1.0;
 float const defaultRate = 1;
 
@@ -40,13 +44,19 @@ float const defaultRate = 1;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeter)];
+    self.displayLink.preferredFramesPerSecond = 12;
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [self.displayLink setPaused:YES];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)updateMeter {
+    
+    [self.audioPlayer updateMeterForPlayer:0];
+    self.decibelLabel_1.text = [NSString stringWithFormat:@"%0.3f dB", [self.audioPlayer getAveragePowerForPlayer:0]];
+    [self.audioPlayer updateMeterForPlayer:1];
+    self.decibelLabel_2.text = [NSString stringWithFormat:@"%0.3f dB", [self.audioPlayer getAveragePowerForPlayer:1]];
+    
 }
 
 #pragma mark - IBActions
@@ -66,9 +76,11 @@ float const defaultRate = 1;
 - (IBAction)playButtonAction:(UIButton *)sender {
     if (!self.audioPlayer.isPlaying) {
         [self.audioPlayer play];
+        [self.displayLink setPaused:NO];
         [sender setTitle:@"Stop" forState:UIControlStateNormal];
     } else {
         [self.audioPlayer stop];
+        [self.displayLink setPaused:YES];
         [sender setTitle:@"Play" forState:UIControlStateNormal];
     }
     
@@ -76,6 +88,13 @@ float const defaultRate = 1;
 
 - (IBAction)resetAllValue:(UIButton *)sender {
     
+    if ([self.audioPlayer isPlaying]) {
+        [self.audioPlayer stop];
+        [self.displayLink setPaused:YES];
+        [self.playBtn setTitle:@"Play" forState:UIControlStateNormal];
+    }
+    
+    // reset sliders
     self.panSlider_1.value = defaultPan;
     self.panSlider_2.value = defaultPan;
     
@@ -84,12 +103,27 @@ float const defaultRate = 1;
     
     self.rateSlider.value = defaultRate;
     
+    // reset pan, volume and rate
     for (NSInteger i = 0;i<2;i++) {
         [self.audioPlayer adjustPan:defaultPan forPlayerAtIndex:i];
         [self.audioPlayer adjustVolume:defaultVolume forPlayerAtIndex:i];
     }
     
     [self.audioPlayer adjustPlayRate:defaultRate];
+    
+    // reset decibel labels
+    self.decibelLabel_1.text = @"0.0 dB";
+    self.decibelLabel_2.text = @"0.0 dB";
+}
+
+#pragma mark - Audio player delegate
+
+- (void)playbackStopped {
+    [self.playBtn setTitle:@"Play" forState:UIControlStateNormal];
+}
+
+- (void)playbackBegan {
+    [self.playBtn setTitle:@"Stop" forState:UIControlStateNormal];
 }
 
 

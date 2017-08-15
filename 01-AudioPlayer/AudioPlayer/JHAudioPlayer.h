@@ -29,4 +29,7 @@
 - (void)adjustVolume:(float)value forPlayerAtIndex:(NSUInteger)index;
 - (void)adjustPlayRate:(float)value;
 
+- (void)updateMeterForPlayer:(NSUInteger)index;
+- (float)getAveragePowerForPlayer:(NSUInteger)index;
+
 @end

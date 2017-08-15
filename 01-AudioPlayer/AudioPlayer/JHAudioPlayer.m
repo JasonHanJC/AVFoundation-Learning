@@ -29,15 +29,14 @@
         _players = @[player_1, player_2];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                 selector:@selector(handleRouteChange:)
-                     name:AVAudioSessionRouteChangeNotification
-                   object:[AVAudioSession sharedInstance]];
-        
+                                                 selector:@selector(handleRouteChange:)
+                                                     name:AVAudioSessionRouteChangeNotification
+                                                   object:[AVAudioSession sharedInstance]];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                 selector:@selector(handleInterruption:)
-                     name:AVAudioSessionInterruptionNotification
-                   object:[AVAudioSession sharedInstance]];
+                                                 selector:@selector(handleInterruption:)
+                                                     name:AVAudioSessionInterruptionNotification
+                                                   object:[AVAudioSession sharedInstance]];
 
     }
     
@@ -57,6 +56,10 @@
     if (player) {
         player.numberOfLoops = -1; // infinite loop
         player.enableRate = YES;
+        player.meteringEnabled = YES;
+        player.volume = 1.0f;
+        player.pan = 0.0f;
+        player.rate = 1.0f;
         [player prepareToPlay];
     } else {
         NSLog(@"%@", [err localizedDescription]);
@@ -111,14 +114,49 @@
     return index == 0 || index<self.players.count;
 }
 
+- (float)getAveragePowerForPlayer:(NSUInteger)index {
+    if ([self isValidIndex:index]) {
+        return [(AVAudioPlayer *)self.players[index] averagePowerForChannel:0];
+    } else {
+        return 0.0;
+    }
+}
+
+- (void)updateMeterForPlayer:(NSUInteger)index {
+    if ([self isValidIndex:index]) {
+        [self.players[index] updateMeters];
+    }
+}
+
 #pragma mark - NSNotification Handler
 - (void)handleRouteChange:(NSNotification *)notification {
     
-    
+    AVAudioSessionRouteChangeReason reason = [notification.userInfo[AVAudioSessionRouteChangeReasonKey] unsignedIntegerValue];
+    if (reason == AVAudioSessionRouteChangeReasonOldDeviceUnavailable) {
+        AVAudioSessionRouteDescription *preRoute = notification.userInfo[AVAudioSessionRouteChangePreviousRouteKey];
+        NSString *portType = [[preRoute.outputs firstObject] portType];
+        if ([portType isEqualToString:AVAudioSessionPortHeadphones]) {
+            [self stop];
+            if (self.delegate) {
+                [self.delegate playbackStopped];
+            }
+        }
+    }
 }
 
 - (void)handleInterruption:(NSNotification *)notification {
-    
+    AVAudioSessionInterruptionType type = [notification.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
+    if (type == AVAudioSessionInterruptionTypeBegan) {
+        [self stop];
+        if (self.delegate) {
+            [self.delegate playbackStopped];
+        }
+    }else if (type == AVAudioSessionInterruptionTypeEnded) {
+        [self play];
+        if (self.delegate) {
+            [self.delegate playbackBegan];
+        }
+    }
 }
 
 @end
