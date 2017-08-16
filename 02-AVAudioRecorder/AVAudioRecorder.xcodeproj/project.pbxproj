@@ -13,6 +13,9 @@
 		966843691F43CCEA00F8D40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966843671F43CCEA00F8D40E /* Main.storyboard */; };
 		9668436B1F43CCEA00F8D40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9668436A1F43CCEA00F8D40E /* Assets.xcassets */; };
 		9668436E1F43CCEA00F8D40E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9668436C1F43CCEA00F8D40E /* LaunchScreen.storyboard */; };
+		966843761F43D8D100F8D40E /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 966843751F43D8D000F8D40E /* head.png */; };
+		966843791F43D96A00F8D40E /* JHAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 966843781F43D96A00F8D40E /* JHAudioPlayer.m */; };
+		9668437C1F43D98600F8D40E /* JHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668437B1F43D98600F8D40E /* JHAudioRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		9668436A1F43CCEA00F8D40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9668436D1F43CCEA00F8D40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9668436F1F43CCEA00F8D40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966843751F43D8D000F8D40E /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		966843771F43D96A00F8D40E /* JHAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioPlayer.h; sourceTree = "<group>"; };
+		966843781F43D96A00F8D40E /* JHAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioPlayer.m; sourceTree = "<group>"; };
+		9668437A1F43D98600F8D40E /* JHAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioRecorder.h; sourceTree = "<group>"; };
+		9668437B1F43D98600F8D40E /* JHAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +68,15 @@
 			children = (
 				966843611F43CCEA00F8D40E /* AppDelegate.h */,
 				966843621F43CCEA00F8D40E /* AppDelegate.m */,
+				966843771F43D96A00F8D40E /* JHAudioPlayer.h */,
+				966843781F43D96A00F8D40E /* JHAudioPlayer.m */,
+				9668437A1F43D98600F8D40E /* JHAudioRecorder.h */,
+				9668437B1F43D98600F8D40E /* JHAudioRecorder.m */,
 				966843641F43CCEA00F8D40E /* ViewController.h */,
 				966843651F43CCEA00F8D40E /* ViewController.m */,
 				966843671F43CCEA00F8D40E /* Main.storyboard */,
 				9668436A1F43CCEA00F8D40E /* Assets.xcassets */,
+				966843751F43D8D000F8D40E /* head.png */,
 				9668436C1F43CCEA00F8D40E /* LaunchScreen.storyboard */,
 				9668436F1F43CCEA00F8D40E /* Info.plist */,
 				9668435E1F43CCEA00F8D40E /* Supporting Files */,
@@ -139,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9668436E1F43CCEA00F8D40E /* LaunchScreen.storyboard in Resources */,
+				966843761F43D8D100F8D40E /* head.png in Resources */,
 				9668436B1F43CCEA00F8D40E /* Assets.xcassets in Resources */,
 				966843691F43CCEA00F8D40E /* Main.storyboard in Resources */,
 			);
@@ -151,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9668437C1F43D98600F8D40E /* JHAudioRecorder.m in Sources */,
 				966843661F43CCEA00F8D40E /* ViewController.m in Sources */,
 				966843631F43CCEA00F8D40E /* AppDelegate.m in Sources */,
 				966843601F43CCEA00F8D40E /* main.m in Sources */,
+				966843791F43D96A00F8D40E /* JHAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +328,7 @@
 				966843741F43CCEA00F8D40E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
