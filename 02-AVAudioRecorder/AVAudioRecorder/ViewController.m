@@ -10,6 +10,13 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIProgressView *averageBar;
+@property (weak, nonatomic) IBOutlet UIProgressView *peakBar;
+
+@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
+@property (weak, nonatomic) IBOutlet UIButton *stopBtn;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @end
 
 @implementation ViewController

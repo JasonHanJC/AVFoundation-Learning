@@ -16,6 +16,7 @@
 		966843761F43D8D100F8D40E /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 966843751F43D8D000F8D40E /* head.png */; };
 		966843791F43D96A00F8D40E /* JHAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 966843781F43D96A00F8D40E /* JHAudioPlayer.m */; };
 		9668437C1F43D98600F8D40E /* JHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668437B1F43D98600F8D40E /* JHAudioRecorder.m */; };
+		966843801F440AA600F8D40E /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668437F1F440AA600F8D40E /* RecordCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		966843781F43D96A00F8D40E /* JHAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioPlayer.m; sourceTree = "<group>"; };
 		9668437A1F43D98600F8D40E /* JHAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioRecorder.h; sourceTree = "<group>"; };
 		9668437B1F43D98600F8D40E /* JHAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioRecorder.m; sourceTree = "<group>"; };
+		9668437E1F440AA600F8D40E /* RecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCell.h; sourceTree = "<group>"; };
+		9668437F1F440AA600F8D40E /* RecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 		9668435D1F43CCEA00F8D40E /* AVAudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				9668437D1F440A7B00F8D40E /* UI */,
 				966843611F43CCEA00F8D40E /* AppDelegate.h */,
 				966843621F43CCEA00F8D40E /* AppDelegate.m */,
 				966843771F43D96A00F8D40E /* JHAudioPlayer.h */,
@@ -90,6 +94,15 @@
 				9668435F1F43CCEA00F8D40E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9668437D1F440A7B00F8D40E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9668437E1F440AA600F8D40E /* RecordCell.h */,
+				9668437F1F440AA600F8D40E /* RecordCell.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +180,7 @@
 			files = (
 				9668437C1F43D98600F8D40E /* JHAudioRecorder.m in Sources */,
 				966843661F43CCEA00F8D40E /* ViewController.m in Sources */,
+				966843801F440AA600F8D40E /* RecordCell.m in Sources */,
 				966843631F43CCEA00F8D40E /* AppDelegate.m in Sources */,
 				966843601F43CCEA00F8D40E /* main.m in Sources */,
 				966843791F43D96A00F8D40E /* JHAudioPlayer.m in Sources */,
