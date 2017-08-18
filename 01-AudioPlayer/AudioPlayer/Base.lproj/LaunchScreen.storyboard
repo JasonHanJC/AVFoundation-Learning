@@ -27,20 +27,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head2-01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ACc-pB-9ZX">
-                                <rect key="frame" x="112" y="100" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="GgV-si-AOd"/>
-                                    <constraint firstAttribute="width" constant="150" id="zsV-j8-b2j"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="aP7-Wp-V9Z" secondAttribute="bottom" constant="50" id="Gv1-IL-LKe"/>
                             <constraint firstItem="aP7-Wp-V9Z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OCl-o8-pRm"/>
-                            <constraint firstItem="ACc-pB-9ZX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TZ6-Va-YYn"/>
-                            <constraint firstItem="ACc-pB-9ZX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="80" id="n1w-Zq-teW"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -49,7 +40,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="head2-01.jpg" width="885" height="885"/>
-    </resources>
 </document>
