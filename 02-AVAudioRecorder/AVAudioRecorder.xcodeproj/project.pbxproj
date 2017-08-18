@@ -15,7 +15,6 @@
 		966843691F43CCEA00F8D40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966843671F43CCEA00F8D40E /* Main.storyboard */; };
 		9668436B1F43CCEA00F8D40E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9668436A1F43CCEA00F8D40E /* Assets.xcassets */; };
 		9668436E1F43CCEA00F8D40E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9668436C1F43CCEA00F8D40E /* LaunchScreen.storyboard */; };
-		966843761F43D8D100F8D40E /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 966843751F43D8D000F8D40E /* head.png */; };
 		9668437C1F43D98600F8D40E /* JHAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668437B1F43D98600F8D40E /* JHAudioRecorder.m */; };
 		966843801F440AA600F8D40E /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668437F1F440AA600F8D40E /* RecordCell.m */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		9668436A1F43CCEA00F8D40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9668436D1F43CCEA00F8D40E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9668436F1F43CCEA00F8D40E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		966843751F43D8D000F8D40E /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
 		9668437A1F43D98600F8D40E /* JHAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAudioRecorder.h; sourceTree = "<group>"; };
 		9668437B1F43D98600F8D40E /* JHAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHAudioRecorder.m; sourceTree = "<group>"; };
 		9668437E1F440AA600F8D40E /* RecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCell.h; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				966843651F43CCEA00F8D40E /* ViewController.m */,
 				966843671F43CCEA00F8D40E /* Main.storyboard */,
 				9668436A1F43CCEA00F8D40E /* Assets.xcassets */,
-				966843751F43D8D000F8D40E /* head.png */,
 				9668436C1F43CCEA00F8D40E /* LaunchScreen.storyboard */,
 				9668436F1F43CCEA00F8D40E /* Info.plist */,
 				9668435E1F43CCEA00F8D40E /* Supporting Files */,
@@ -186,7 +183,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9668436E1F43CCEA00F8D40E /* LaunchScreen.storyboard in Resources */,
-				966843761F43D8D100F8D40E /* head.png in Resources */,
 				9668436B1F43CCEA00F8D40E /* Assets.xcassets in Resources */,
 				966843691F43CCEA00F8D40E /* Main.storyboard in Resources */,
 			);
