@@ -17,20 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // Configure the audio session for recording and playback
-    
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    
-    NSError *error;
-    if (![session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error]) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    
-    if (![session setActive:YES error:&error]) {
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    
+        
     return YES;
 }
 

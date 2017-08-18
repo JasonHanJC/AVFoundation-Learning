@@ -74,6 +74,10 @@
 #pragma mark - public methods
 
 - (BOOL)record {
+    [self.player stop];
+    
+    [self setupAudioSessionForRecording];
+    
     return [self.recorder record];
 }
 
@@ -84,6 +88,7 @@
 - (void)stopWithCompletionHandler:(JHRecordingStopCompletionHandler)completionHandler {
     self.stopCompltHandler = completionHandler;
     [self.recorder stop];
+    [self.recorder prepareToRecord];
 }
 
 - (void)saveWithName:(NSString *)name completionHandler:(JHRecordingSaveCompletionHandler)completionHandler {
@@ -145,6 +150,13 @@
 }
 
 - (void)playbackRecord:(Record *)record {
+    [self.recorder pause];
+    if (self.delegate) {
+        [self.delegate recordingInterrupted];
+    }
+    
+    [self setupAudioSessionForPlayback];
+    
     [self.player stop];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:record.fileURL error:nil];
     if (self.player) {
@@ -160,6 +172,32 @@
         if (self.delegate) {
             [self.delegate recordingInterrupted];
         }
+    }
+}
+
+- (void)setupAudioSessionForRecording {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    NSError *error;
+    if (![session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error]) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    if (![session setActive:YES error:&error]) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+}
+
+- (void)setupAudioSessionForPlayback {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    NSError *error;
+    if (![session setCategory:AVAudioSessionCategoryPlayback error:&error]) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    if (![session setActive:YES error:&error]) {
+        NSLog(@"%@", [error localizedDescription]);
     }
 }
 
