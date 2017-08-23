@@ -25,5 +25,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)playLocalFile:(UIButton *)sender {
+    
+}
 
+- (IBAction)playStreamFile:(UIButton *)sender {
+    
+}
 @end

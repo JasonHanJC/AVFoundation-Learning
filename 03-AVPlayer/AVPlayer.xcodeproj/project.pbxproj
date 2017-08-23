@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967981691F4D011400B8E6A4 /* JHPlayerView.m */; };
 		96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6C1F4BAC7700B28747 /* AppDelegate.m */; };
 		96A19E701F4BAC7700B28747 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6F1F4BAC7700B28747 /* ViewController.m */; };
 		96A19E731F4BAC7700B28747 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A19E711F4BAC7700B28747 /* Main.storyboard */; };
 		96A19E751F4BAC7700B28747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A19E741F4BAC7700B28747 /* Assets.xcassets */; };
 		96A19E781F4BAC7700B28747 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A19E761F4BAC7700B28747 /* LaunchScreen.storyboard */; };
 		96A19E7B1F4BAC7700B28747 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E7A1F4BAC7700B28747 /* main.m */; };
+		96B4AE4A1F4D4277009B480E /* JHPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B4AE491F4D4277009B480E /* JHPlayerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		967981681F4D011400B8E6A4 /* JHPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPlayerView.h; sourceTree = "<group>"; };
+		967981691F4D011400B8E6A4 /* JHPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPlayerView.m; sourceTree = "<group>"; };
 		96A19E681F4BAC7700B28747 /* AVPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A19E6B1F4BAC7700B28747 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96A19E6C1F4BAC7700B28747 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		96A19E771F4BAC7700B28747 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96A19E791F4BAC7700B28747 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96A19E7A1F4BAC7700B28747 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		96B4AE481F4D4277009B480E /* JHPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPlayerController.h; sourceTree = "<group>"; };
+		96B4AE491F4D4277009B480E /* JHPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPlayerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		96A19E6A1F4BAC7700B28747 /* AVPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				96BA7F0B1F4CE26000AF95E3 /* JHAVPlayerController */,
 				96A19E6B1F4BAC7700B28747 /* AppDelegate.h */,
 				96A19E6C1F4BAC7700B28747 /* AppDelegate.m */,
 				96A19E6E1F4BAC7700B28747 /* ViewController.h */,
@@ -69,6 +76,17 @@
 				96A19E7A1F4BAC7700B28747 /* main.m */,
 			);
 			path = AVPlayer;
+			sourceTree = "<group>";
+		};
+		96BA7F0B1F4CE26000AF95E3 /* JHAVPlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				967981681F4D011400B8E6A4 /* JHPlayerView.h */,
+				967981691F4D011400B8E6A4 /* JHPlayerView.m */,
+				96B4AE481F4D4277009B480E /* JHPlayerController.h */,
+				96B4AE491F4D4277009B480E /* JHPlayerController.m */,
+			);
+			path = JHAVPlayerController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +161,9 @@
 			files = (
 				96A19E701F4BAC7700B28747 /* ViewController.m in Sources */,
 				96A19E7B1F4BAC7700B28747 /* main.m in Sources */,
+				96B4AE4A1F4D4277009B480E /* JHPlayerController.m in Sources */,
 				96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */,
+				9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,10 +295,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C2VVZK2VN8;
 				INFOPLIST_FILE = AVPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AVPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -288,10 +309,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C2VVZK2VN8;
 				INFOPLIST_FILE = AVPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AVPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -314,6 +336,7 @@
 				96A19E801F4BAC7700B28747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
