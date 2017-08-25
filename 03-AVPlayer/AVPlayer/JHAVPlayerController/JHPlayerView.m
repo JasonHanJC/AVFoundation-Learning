@@ -22,12 +22,15 @@
         self.backgroundColor = [UIColor blackColor];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
+        // configure player layer gravity
+        // default is AVLayerVideoGravityResizeAspect
+        //[(AVPlayerLayer *)[self layer] setVideoGravity:AVLayerVideoGravityResizeAspect];
+        
+        
         // add player to avplayerlayer
-        [((AVPlayerLayer *)self.layer) setPlayer:player];
+        [(AVPlayerLayer *)[self layer] setPlayer:player];
     }
     return self;
 }
-
-
 
 @end

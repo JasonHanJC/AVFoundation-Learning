@@ -20,8 +20,6 @@ static const NSString *PlayerItemContext;
 
 @property (nonatomic, strong) JHPlayerView *playerView;
 
-
-
 @end
 
 @implementation JHPlayerController
@@ -81,10 +79,14 @@ static const NSString *PlayerItemContext;
         if ([statusNumber isKindOfClass:[NSNumber class]]) {
             status = statusNumber.integerValue;
         }
+        
         // Switch over the status
         switch (status) {
             case AVPlayerItemStatusReadyToPlay:
                 // Ready to Play
+                
+                [self.player play];
+                
                 break;
             case AVPlayerItemStatusFailed:
                 [self popErrorAlert:self.playerItem.error];
@@ -103,9 +105,24 @@ static const NSString *PlayerItemContext;
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:cancelAction];
     
-    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-    UIViewController *rootController = [keyWindow rootViewController];
-    [rootController presentViewController:alertController animated:YES completion:nil];
+    [[self topMostController] presentViewController:alertController animated:YES completion:nil];
+}
+
+- (UIViewController *)topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
+}
+
+#pragma mark - interface
+
+- (UIView *)view {
+    return self.playerView;
 }
 
 @end

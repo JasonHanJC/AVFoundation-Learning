@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962797471F4E46E3004398C4 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962797461F4E46E3004398C4 /* PlayerViewController.m */; };
+		962797491F4E48AB004398C4 /* hubblecast.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 962797481F4E48AB004398C4 /* hubblecast.m4v */; };
+		964782201F4FA20600A8008F /* JHOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647821F1F4FA20600A8008F /* JHOverlayView.m */; };
+		964782241F4FA23D00A8008F /* JHOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964782231F4FA23D00A8008F /* JHOverlayView.xib */; };
 		9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967981691F4D011400B8E6A4 /* JHPlayerView.m */; };
 		96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6C1F4BAC7700B28747 /* AppDelegate.m */; };
 		96A19E701F4BAC7700B28747 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6F1F4BAC7700B28747 /* ViewController.m */; };
@@ -18,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		962797451F4E46E3004398C4 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		962797461F4E46E3004398C4 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		962797481F4E48AB004398C4 /* hubblecast.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = hubblecast.m4v; sourceTree = "<group>"; };
+		9647821E1F4FA20600A8008F /* JHOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHOverlayView.h; sourceTree = "<group>"; };
+		9647821F1F4FA20600A8008F /* JHOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHOverlayView.m; sourceTree = "<group>"; };
+		964782231F4FA23D00A8008F /* JHOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHOverlayView.xib; sourceTree = "<group>"; };
 		967981681F4D011400B8E6A4 /* JHPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPlayerView.h; sourceTree = "<group>"; };
 		967981691F4D011400B8E6A4 /* JHPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPlayerView.m; sourceTree = "<group>"; };
 		96A19E681F4BAC7700B28747 /* AVPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,11 +74,14 @@
 		96A19E6A1F4BAC7700B28747 /* AVPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				962797481F4E48AB004398C4 /* hubblecast.m4v */,
 				96BA7F0B1F4CE26000AF95E3 /* JHAVPlayerController */,
 				96A19E6B1F4BAC7700B28747 /* AppDelegate.h */,
 				96A19E6C1F4BAC7700B28747 /* AppDelegate.m */,
 				96A19E6E1F4BAC7700B28747 /* ViewController.h */,
 				96A19E6F1F4BAC7700B28747 /* ViewController.m */,
+				962797451F4E46E3004398C4 /* PlayerViewController.h */,
+				962797461F4E46E3004398C4 /* PlayerViewController.m */,
 				96A19E711F4BAC7700B28747 /* Main.storyboard */,
 				96A19E741F4BAC7700B28747 /* Assets.xcassets */,
 				96A19E761F4BAC7700B28747 /* LaunchScreen.storyboard */,
@@ -85,6 +98,9 @@
 				967981691F4D011400B8E6A4 /* JHPlayerView.m */,
 				96B4AE481F4D4277009B480E /* JHPlayerController.h */,
 				96B4AE491F4D4277009B480E /* JHPlayerController.m */,
+				9647821E1F4FA20600A8008F /* JHOverlayView.h */,
+				9647821F1F4FA20600A8008F /* JHOverlayView.m */,
+				964782231F4FA23D00A8008F /* JHOverlayView.xib */,
 			);
 			path = JHAVPlayerController;
 			sourceTree = "<group>";
@@ -146,8 +162,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962797491F4E48AB004398C4 /* hubblecast.m4v in Resources */,
 				96A19E781F4BAC7700B28747 /* LaunchScreen.storyboard in Resources */,
 				96A19E751F4BAC7700B28747 /* Assets.xcassets in Resources */,
+				964782241F4FA23D00A8008F /* JHOverlayView.xib in Resources */,
 				96A19E731F4BAC7700B28747 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,9 +179,11 @@
 			files = (
 				96A19E701F4BAC7700B28747 /* ViewController.m in Sources */,
 				96A19E7B1F4BAC7700B28747 /* main.m in Sources */,
+				964782201F4FA20600A8008F /* JHOverlayView.m in Sources */,
 				96B4AE4A1F4D4277009B480E /* JHPlayerController.m in Sources */,
 				96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */,
 				9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */,
+				962797471F4E46E3004398C4 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +229,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -262,6 +284,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
