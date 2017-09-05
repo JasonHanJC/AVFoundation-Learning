@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHOverlayView.h"
+
 
 @class AVPlayer;
 
@@ -15,5 +17,6 @@
 // initializer
 - (instancetype)initWithAVPlayer:(AVPlayer *)player;
 
+@property (weak, nonatomic) id<JHOverlayViewProtocol> delegate;
 
 @end

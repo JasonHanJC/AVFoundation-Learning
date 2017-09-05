@@ -12,7 +12,7 @@
 
 static const NSString *PlayerItemContext;
 
-@interface JHPlayerController()
+@interface JHPlayerController() <JHOverlayViewProtocol>
 
 @property (nonatomic, strong) AVAsset *asset;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
@@ -59,6 +59,7 @@ static const NSString *PlayerItemContext;
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     
     self.playerView = [[JHPlayerView alloc] initWithAVPlayer:self.player];
+    self.playerView.delegate = self;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
