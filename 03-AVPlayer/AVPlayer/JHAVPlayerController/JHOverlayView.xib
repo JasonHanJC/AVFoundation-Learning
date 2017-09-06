@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,18 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGf-Ly-4Sh">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <items>
-                        <navigationItem title="Playback" id="Qv1-AU-CYM">
-                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="Qkn-qN-iqT">
-                                <connections>
-                                    <action selector="closePlayback:" destination="iN0-l3-epB" id="ffc-9S-jcu"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APt-Wh-g2E">
                     <rect key="frame" x="10" y="421" width="300" height="49"/>
                     <subviews>
@@ -58,7 +47,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-Jc-tC9">
                                         <rect key="frame" x="44" y="9" width="212" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCJ-ef-hO4">
+                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCJ-ef-hO4">
                                                 <rect key="frame" x="8" y="3" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="Zx5-HP-TLC"/>
@@ -69,22 +58,25 @@
                                                     <action selector="togglePlayback:" destination="iN0-l3-epB" eventType="touchUpInside" id="Et0-e0-AvV"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-51-dkr">
-                                                <rect key="frame" x="158" y="5" width="46" height="21"/>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xje-K5-yen">
+                                                <rect key="frame" x="44" y="0.0" width="76.5" height="31"/>
+                                                <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.8287755840926001" green="0.8287755840926001" blue="0.8287755840926001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-51-dkr">
+                                                <rect key="frame" x="132" y="5.5" width="71.5" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="72" id="bWI-gW-LEL"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xje-K5-yen">
-                                                <rect key="frame" x="38" y="0.0" width="114" height="31"/>
-                                                <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="xje-K5-yen" firstAttribute="leading" secondItem="mCJ-ef-hO4" secondAttribute="trailing" constant="8" id="0Ef-I9-XWh"/>
-                                            <constraint firstItem="Qrb-51-dkr" firstAttribute="leading" secondItem="xje-K5-yen" secondAttribute="trailing" constant="8" id="B9j-Sb-dQN"/>
+                                            <constraint firstItem="xje-K5-yen" firstAttribute="leading" secondItem="mCJ-ef-hO4" secondAttribute="trailing" constant="14" id="0Ef-I9-XWh"/>
+                                            <constraint firstItem="Qrb-51-dkr" firstAttribute="leading" secondItem="xje-K5-yen" secondAttribute="trailing" constant="14" id="B9j-Sb-dQN"/>
                                             <constraint firstAttribute="height" constant="30" id="Lri-6F-1V9"/>
                                             <constraint firstItem="xje-K5-yen" firstAttribute="centerY" secondItem="BD5-Jc-tC9" secondAttribute="centerY" id="QXF-95-XM2"/>
                                             <constraint firstItem="Qrb-51-dkr" firstAttribute="centerY" secondItem="BD5-Jc-tC9" secondAttribute="centerY" id="c01-6P-ZgE"/>
@@ -117,17 +109,30 @@
                         <constraint firstAttribute="trailing" secondItem="y5h-Iz-4L9" secondAttribute="trailing" id="xiM-Ib-mVd"/>
                     </constraints>
                 </view>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGf-Ly-4Sh">
+                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <items>
+                        <navigationItem title="Playback" id="Qv1-AU-CYM">
+                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="Qkn-qN-iqT">
+                                <connections>
+                                    <action selector="closePlayback:" destination="iN0-l3-epB" id="ffc-9S-jcu"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="APt-Wh-g2E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XXw-wK-bzC"/>
                 <constraint firstAttribute="trailing" secondItem="uGf-Ly-4Sh" secondAttribute="trailing" id="cML-Mj-6ey"/>
+                <constraint firstItem="uGf-Ly-4Sh" firstAttribute="top" secondItem="2Fw-vm-aQH" secondAttribute="top" id="dr3-22-1DM"/>
                 <constraint firstAttribute="trailing" secondItem="APt-Wh-g2E" secondAttribute="trailing" constant="10" id="nA8-9N-RKD"/>
                 <constraint firstItem="uGf-Ly-4Sh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oj9-yI-s9X"/>
                 <constraint firstAttribute="bottom" secondItem="APt-Wh-g2E" secondAttribute="bottom" constant="10" id="ueJ-sH-X0K"/>
-                <constraint firstItem="uGf-Ly-4Sh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xFp-wg-4fW"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="2Fw-vm-aQH"/>
             <connections>
                 <outlet property="airPlayButton" destination="tWj-b5-pOt" id="x5u-9C-dTE"/>
                 <outlet property="doneBarButtonItem" destination="Qkn-qN-iqT" id="JCf-wX-MTu"/>

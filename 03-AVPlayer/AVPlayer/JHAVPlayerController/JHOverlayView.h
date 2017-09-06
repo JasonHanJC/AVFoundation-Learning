@@ -10,6 +10,13 @@
 
 @protocol JHOverlayViewProtocol <NSObject>
 
+- (void)closePlaybackWindow;
+- (void)togglePlayback:(BOOL)shoudPlay;
+
+- (void)scrubbingDidStart;
+- (void)scrubbedToTime:(NSTimeInterval)time;
+- (void)scrubbingDidEnd;
+
 @end
 
 @interface JHOverlayView : UIView
@@ -28,6 +35,7 @@
 - (IBAction)toggleSub:(UIButton *)sender;
 - (IBAction)closePlayback:(UIBarButtonItem *)sender;
 - (void)toggleControl:(UITapGestureRecognizer *)sender;
+- (void)setCurrentTime:(NSTimeInterval)currentTime duration:(NSTimeInterval)duration;
 
 @property (weak, nonatomic) id<JHOverlayViewProtocol> delegate;
 

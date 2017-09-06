@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961681621F5FA4DD00C04886 /* AVAsset+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 961681611F5FA4DD00C04886 /* AVAsset+Addition.m */; };
 		962797471F4E46E3004398C4 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962797461F4E46E3004398C4 /* PlayerViewController.m */; };
 		962797491F4E48AB004398C4 /* hubblecast.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 962797481F4E48AB004398C4 /* hubblecast.m4v */; };
 		964782201F4FA20600A8008F /* JHOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647821F1F4FA20600A8008F /* JHOverlayView.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		961681601F5FA4DD00C04886 /* AVAsset+Addition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAsset+Addition.h"; sourceTree = "<group>"; };
+		961681611F5FA4DD00C04886 /* AVAsset+Addition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+Addition.m"; sourceTree = "<group>"; };
 		962797451F4E46E3004398C4 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		962797461F4E46E3004398C4 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		962797481F4E48AB004398C4 /* hubblecast.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = hubblecast.m4v; sourceTree = "<group>"; };
@@ -55,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9616815F1F5FA47F00C04886 /* Catagories */ = {
+			isa = PBXGroup;
+			children = (
+				961681601F5FA4DD00C04886 /* AVAsset+Addition.h */,
+				961681611F5FA4DD00C04886 /* AVAsset+Addition.m */,
+			);
+			path = Catagories;
+			sourceTree = "<group>";
+		};
 		96A19E5F1F4BAC7700B28747 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +86,7 @@
 		96A19E6A1F4BAC7700B28747 /* AVPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				9616815F1F5FA47F00C04886 /* Catagories */,
 				962797481F4E48AB004398C4 /* hubblecast.m4v */,
 				96BA7F0B1F4CE26000AF95E3 /* JHAVPlayerController */,
 				96A19E6B1F4BAC7700B28747 /* AppDelegate.h */,
@@ -180,6 +193,7 @@
 				96A19E701F4BAC7700B28747 /* ViewController.m in Sources */,
 				96A19E7B1F4BAC7700B28747 /* main.m in Sources */,
 				964782201F4FA20600A8008F /* JHOverlayView.m in Sources */,
+				961681621F5FA4DD00C04886 /* AVAsset+Addition.m in Sources */,
 				96B4AE4A1F4D4277009B480E /* JHPlayerController.m in Sources */,
 				96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */,
 				9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */,

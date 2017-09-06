@@ -18,5 +18,6 @@
 - (instancetype)initWithAVPlayer:(AVPlayer *)player;
 
 @property (weak, nonatomic) id<JHOverlayViewProtocol> delegate;
+@property (nonatomic, strong) JHOverlayView *overlayView;
 
 @end

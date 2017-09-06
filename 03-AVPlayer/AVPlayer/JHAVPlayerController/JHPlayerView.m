@@ -9,12 +9,6 @@
 #import "JHPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface JHPlayerView()
-
-@property (nonatomic, strong) JHOverlayView *overlayView;
-
-@end
-
 @implementation JHPlayerView
 
 // override the UIView layerClass method to set avplayerlayer as backing layer
@@ -37,11 +31,11 @@
         
         // Load the overlay view from xib
         // Add the overlay view over the JHPlayerView
-        _overlayView = [[[NSBundle mainBundle] loadNibNamed:@"JHOverlayView"
+        self.overlayView = [[[NSBundle mainBundle] loadNibNamed:@"JHOverlayView"
                                                       owner:self
                                                     options:nil] firstObject];
         
-        [self addSubview:_overlayView];
+        [self addSubview:self.overlayView];
     }
     return self;
 }
@@ -53,8 +47,8 @@
     self.overlayView.frame = self.bounds;
 }
 
-- (id<JHOverlayViewProtocol>)delegate {
-    return self.overlayView.delegate;
+- (void)setDelegate:(id<JHOverlayViewProtocol>)delegate {
+    self.overlayView.delegate = delegate;
 }
 
 @end
