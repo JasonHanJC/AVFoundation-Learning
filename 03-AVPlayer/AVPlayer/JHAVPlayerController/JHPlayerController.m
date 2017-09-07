@@ -194,21 +194,21 @@ static const NSString *PlayerItemContext;
 
 - (void)addPlaybackEndObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(haddlePlayerDidFinishPlaying:)
+                                             selector:@selector(handlePlayerDidFinishPlaying:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:[self.player currentItem]];
 }
 
 - (void)addInterruptionObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(haddleSessionInterruption:)
+                                             selector:@selector(handleSessionInterruption:)
                                                  name:AVAudioSessionInterruptionNotification
                                                object:nil];
 }
 
 - (void)addFailPlayToEndObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(haddleAVPlayerItemFailedToPlayToEndTime:) name:AVPlayerItemFailedToPlayToEndTimeNotification
+                                             selector:@selector(handleAVPlayerItemFailedToPlayToEndTime:) name:AVPlayerItemFailedToPlayToEndTimeNotification
                                                object:nil];
 }
 
@@ -219,7 +219,9 @@ static const NSString *PlayerItemContext;
                                                object:nil];
 }
 
-- (void)haddleAVPlayerItemFailedToPlayToEndTime:(NSNotification *)notification {
+#pragma mark - handle notification
+
+- (void)handleAVPlayerItemFailedToPlayToEndTime:(NSNotification *)notification {
     NSError *error = notification.userInfo[AVPlayerItemFailedToPlayToEndTimeErrorKey];
     
     // This notification was send from other thread, pop up error message under main thread
@@ -228,7 +230,7 @@ static const NSString *PlayerItemContext;
     });
 }
 
-- (void)haddleSessionInterruption:(NSNotification *)notification {
+- (void)handleSessionInterruption:(NSNotification *)notification {
     
     AVAudioSessionInterruptionType type = [notification.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
     
@@ -247,7 +249,7 @@ static const NSString *PlayerItemContext;
     }
 }
 
-- (void)haddlePlayerDidFinishPlaying:(NSNotification *)notification {
+- (void)handlePlayerDidFinishPlaying:(NSNotification *)notification {
     AVPlayerItem *playerItem = (AVPlayerItem *)notification.object;
     
     // Jump to the beginning of the video
