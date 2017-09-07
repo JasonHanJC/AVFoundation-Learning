@@ -132,14 +132,22 @@
 - (void)toggleControl:(UITapGestureRecognizer *)sender {
     [UIView animateWithDuration:0.35 animations:^{
         if (!self.controlsHidden) {
-            self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y - self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
-            self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y + (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
+            [self hideControls];
         } else {
-            self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y + self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
-            self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y - (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
+            [self showControls];
         }
         self.controlsHidden = !self.controlsHidden;
     }];
+}
+
+- (void)hideControls {
+    self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y - self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
+    self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y + (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
+}
+
+- (void)showControls {
+    self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y + self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
+    self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y - (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
 }
 
 #pragma mark - Scrubber slider actions

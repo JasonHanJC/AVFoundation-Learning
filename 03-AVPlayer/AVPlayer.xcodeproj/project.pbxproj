@@ -107,15 +107,23 @@
 		96BA7F0B1F4CE26000AF95E3 /* JHAVPlayerController */ = {
 			isa = PBXGroup;
 			children = (
-				967981681F4D011400B8E6A4 /* JHPlayerView.h */,
-				967981691F4D011400B8E6A4 /* JHPlayerView.m */,
+				96E43AD01F60E32D00068E35 /* Views */,
 				96B4AE481F4D4277009B480E /* JHPlayerController.h */,
 				96B4AE491F4D4277009B480E /* JHPlayerController.m */,
+			);
+			path = JHAVPlayerController;
+			sourceTree = "<group>";
+		};
+		96E43AD01F60E32D00068E35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				967981681F4D011400B8E6A4 /* JHPlayerView.h */,
+				967981691F4D011400B8E6A4 /* JHPlayerView.m */,
 				9647821E1F4FA20600A8008F /* JHOverlayView.h */,
 				9647821F1F4FA20600A8008F /* JHOverlayView.m */,
 				964782231F4FA23D00A8008F /* JHOverlayView.xib */,
 			);
-			path = JHAVPlayerController;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +157,11 @@
 				TargetAttributes = {
 					96A19E671F4BAC7700B28747 = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

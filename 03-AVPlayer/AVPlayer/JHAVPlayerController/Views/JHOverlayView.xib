@@ -60,8 +60,8 @@
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xje-K5-yen">
                                                 <rect key="frame" x="44" y="0.0" width="76.5" height="31"/>
-                                                <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="maximumTrackTintColor" red="0.8287755840926001" green="0.8287755840926001" blue="0.8287755840926001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" red="0.49509803921568629" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-51-dkr">
                                                 <rect key="frame" x="132" y="5.5" width="71.5" height="20.5"/>

@@ -21,7 +21,6 @@ static const NSString *PlayerItemContext;
 @property (nonatomic, strong) JHPlayerView *playerView;
 
 @property (nonatomic, strong) id timeObserver;
-@property (nonatomic, strong) id playbackEndObserver;
 
 @end
 
@@ -45,7 +44,6 @@ static const NSString *PlayerItemContext;
             NSLog(@"Activation Error: %@", [error localizedDescription]);
         }
         
-        
         // Prepare asset
         _asset = [AVAsset assetWithURL:assetURL];
         
@@ -56,7 +54,7 @@ static const NSString *PlayerItemContext;
 }
 
 - (void)dealloc {
-    [self removePlaybackEndObserver];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)prepareToPlay {
@@ -117,9 +115,8 @@ static const NSString *PlayerItemContext;
                                                    duration:CMTimeGetSeconds(duration)];
                 
                 // Add time observer for update remaining time
-                [self addTimeObserver];
-                // Add play back end observer
-                [self addPlaybackEndObserver];
+                [self addObservers];
+                
                 // Ready to Play
                 [self.player play];
             }
@@ -138,16 +135,19 @@ static const NSString *PlayerItemContext;
 
 - (void)play {
     [self.player play];
+    self.playerView.overlayView.playbackButton.selected = YES;
     [UIApplication sharedApplication].idleTimerDisabled = YES;
 }
 
 - (void)pause {
     [self.player pause];
+    self.playerView.overlayView.playbackButton.selected = NO;
     [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)stop {
     [self.player pause];
+    self.playerView.overlayView.playbackButton.selected = NO;
     [UIApplication sharedApplication].idleTimerDisabled = NO;
     self.player = nil;
 }
@@ -184,26 +184,104 @@ static const NSString *PlayerItemContext;
 
 #pragma mark - private methods
 
+- (void)addObservers {
+    [self addTimeObserver];
+    [self addPlaybackEndObserver];
+    [self addInterruptionObserver];
+    [self addFailPlayToEndObserver];
+    [self addRouteChangeObserver];
+}
+
 - (void)addPlaybackEndObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:[self.player currentItem]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(haddlePlayerDidFinishPlaying:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:[self.player currentItem]];
 }
 
-- (void)playerDidFinishPlaying:(NSNotification *)notification {
+- (void)addInterruptionObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(haddleSessionInterruption:)
+                                                 name:AVAudioSessionInterruptionNotification
+                                               object:nil];
+}
+
+- (void)addFailPlayToEndObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(haddleAVPlayerItemFailedToPlayToEndTime:) name:AVPlayerItemFailedToPlayToEndTimeNotification
+                                               object:nil];
+}
+
+- (void)addRouteChangeObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleRouteChange:)
+                                                 name:AVAudioSessionRouteChangeNotification
+                                               object:nil];
+}
+
+- (void)haddleAVPlayerItemFailedToPlayToEndTime:(NSNotification *)notification {
+    NSError *error = notification.userInfo[AVPlayerItemFailedToPlayToEndTimeErrorKey];
+    
+    // This notification was send from other thread, pop up error message under main thread
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self popErrorAlert:error];
+    });
+}
+
+- (void)haddleSessionInterruption:(NSNotification *)notification {
+    
+    AVAudioSessionInterruptionType type = [notification.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
+    
+    if (type == AVAudioSessionInterruptionTypeBegan) {
+    
+        // pause the video
+        [self pause];
+        
+    } else if (type == AVAudioSessionInterruptionTypeEnded) {
+        
+        // resume the video
+        // [self.player play];
+        
+        // update the playback button
+        // self.playerView.overlayView.playbackButton.selected = YES;
+    }
+}
+
+- (void)haddlePlayerDidFinishPlaying:(NSNotification *)notification {
     AVPlayerItem *playerItem = (AVPlayerItem *)notification.object;
+    
+    // Jump to the beginning of the video
     [playerItem seekToTime:kCMTimeZero];
-    [self.player pause];
-    self.playerView.overlayView.playbackButton.selected = NO;
+    // pause the video
+    [self pause];
 }
 
-- (void)removePlaybackEndObserver {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (void)handleRouteChange:(NSNotification *)notification {
+    
+    AVAudioSessionRouteChangeReason reason = [notification.userInfo[AVAudioSessionRouteChangeReasonKey] unsignedIntegerValue];
+    
+    
+    if (reason == AVAudioSessionRouteChangeReasonOldDeviceUnavailable) {
+        AVAudioSessionRouteDescription *preRoute = notification.userInfo[AVAudioSessionRouteChangePreviousRouteKey];
+        NSString *portType = [[preRoute.outputs firstObject] portType];
+        if ([portType isEqualToString:AVAudioSessionPortHeadphones]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // pause the video
+                [self pause];
+            });
+        }
+    }
 }
 
 - (void)popErrorAlert:(NSError *)error {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error" message:error.description preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        // dismiss the playerViewController
+        [[self topMostController] dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
     [alertController addAction:cancelAction];
     
     [[self topMostController] presentViewController:alertController animated:YES completion:nil];
