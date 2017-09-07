@@ -33,6 +33,20 @@ static const NSString *PlayerItemContext;
     self = [super init];
     if (self) {
         
+        // Setup audio session catagory, use playback for video playback
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        
+        NSError *error;
+        if (![session setCategory:AVAudioSessionCategoryPlayback error:&error]) {
+            NSLog(@"Category Error: %@", [error localizedDescription]);
+        }
+        
+        if (![session setActive:YES error:&error]) {
+            NSLog(@"Activation Error: %@", [error localizedDescription]);
+        }
+        
+        
+        // Prepare asset
         _asset = [AVAsset assetWithURL:assetURL];
         
         [self prepareToPlay];
