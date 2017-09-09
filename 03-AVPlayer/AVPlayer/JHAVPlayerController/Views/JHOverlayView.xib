@@ -36,14 +36,6 @@
                                             <action selector="toggleSub:" destination="iN0-l3-epB" eventType="touchUpInside" id="0RJ-ha-hTQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWj-b5-pOt">
-                                        <rect key="frame" x="264" y="12" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="J00-4I-5Y8"/>
-                                            <constraint firstAttribute="height" constant="24" id="LV6-Y7-dvb"/>
-                                        </constraints>
-                                        <state key="normal" image="airplay"/>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-Jc-tC9">
                                         <rect key="frame" x="44" y="9" width="212" height="30"/>
                                         <subviews>
@@ -60,8 +52,8 @@
                                             </button>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xje-K5-yen">
                                                 <rect key="frame" x="44" y="0.0" width="76.5" height="31"/>
-                                                <color key="minimumTrackTintColor" red="0.49509803921568629" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="maximumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="maximumTrackTintColor" red="0.49509803920000001" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-51-dkr">
                                                 <rect key="frame" x="132" y="5.5" width="71.5" height="20.5"/>
@@ -89,12 +81,10 @@
                                 <color key="backgroundColor" red="0.93724222715736039" green="0.93724222715736039" blue="0.93724222715736039" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="GPZ-0o-ef7" firstAttribute="leading" secondItem="rHu-zI-30c" secondAttribute="leading" constant="12" id="0i9-68-hVm"/>
+                                    <constraint firstAttribute="trailing" secondItem="BD5-Jc-tC9" secondAttribute="trailing" constant="44" id="3N5-eR-kMf"/>
                                     <constraint firstItem="BD5-Jc-tC9" firstAttribute="centerY" secondItem="rHu-zI-30c" secondAttribute="centerY" id="Anf-GC-gKz"/>
                                     <constraint firstItem="BD5-Jc-tC9" firstAttribute="leading" secondItem="GPZ-0o-ef7" secondAttribute="trailing" constant="8" id="JD9-Cv-zQR"/>
-                                    <constraint firstAttribute="trailing" secondItem="tWj-b5-pOt" secondAttribute="trailing" constant="12" id="MOV-Fm-BDw"/>
                                     <constraint firstItem="GPZ-0o-ef7" firstAttribute="centerY" secondItem="rHu-zI-30c" secondAttribute="centerY" id="Tgy-6o-IBQ"/>
-                                    <constraint firstItem="tWj-b5-pOt" firstAttribute="leading" secondItem="BD5-Jc-tC9" secondAttribute="trailing" constant="8" id="gQV-2H-hdu"/>
-                                    <constraint firstItem="tWj-b5-pOt" firstAttribute="centerY" secondItem="rHu-zI-30c" secondAttribute="centerY" id="huc-Ct-N1i"/>
                                 </constraints>
                             </view>
                             <blurEffect style="light"/>
@@ -121,10 +111,18 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airplaying..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AN0-df-eCO">
+                    <rect key="frame" x="99" y="226" width="123" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="AN0-df-eCO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0Xu-AG-Toa"/>
+                <constraint firstItem="AN0-df-eCO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="X1q-XE-ggn"/>
                 <constraint firstItem="APt-Wh-g2E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="XXw-wK-bzC"/>
                 <constraint firstAttribute="trailing" secondItem="uGf-Ly-4Sh" secondAttribute="trailing" id="cML-Mj-6ey"/>
                 <constraint firstItem="uGf-Ly-4Sh" firstAttribute="top" secondItem="2Fw-vm-aQH" secondAttribute="top" id="dr3-22-1DM"/>
@@ -134,20 +132,21 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="2Fw-vm-aQH"/>
             <connections>
-                <outlet property="airPlayButton" destination="tWj-b5-pOt" id="x5u-9C-dTE"/>
+                <outlet property="airplayLabel" destination="AN0-df-eCO" id="AIH-iY-2R9"/>
                 <outlet property="doneBarButtonItem" destination="Qkn-qN-iqT" id="JCf-wX-MTu"/>
                 <outlet property="navigationBar" destination="uGf-Ly-4Sh" id="mrG-id-T9F"/>
+                <outlet property="navigationItem" destination="Qv1-AU-CYM" id="6ZN-wL-Qr1"/>
                 <outlet property="playbackButton" destination="mCJ-ef-hO4" id="2gN-3J-hCL"/>
                 <outlet property="scrubberSlider" destination="xje-K5-yen" id="Qgc-D9-K5d"/>
                 <outlet property="scruberTimeLabel" destination="Qrb-51-dkr" id="oEE-RO-FY2"/>
                 <outlet property="subButton" destination="GPZ-0o-ef7" id="8FS-MK-bZV"/>
                 <outlet property="transportView" destination="APt-Wh-g2E" id="iTq-rg-ota"/>
+                <outlet property="visualEffectHolderView" destination="rHu-zI-30c" id="SXm-8a-fza"/>
             </connections>
             <point key="canvasLocation" x="25" y="52"/>
         </view>
     </objects>
     <resources>
-        <image name="airplay" width="28" height="20"/>
         <image name="play_button" width="21" height="24"/>
         <image name="subtitle" width="24" height="21"/>
     </resources>

@@ -7,6 +7,8 @@
 //
 
 #import "JHOverlayView.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "UIView+Constraint.h"
 
 @interface JHOverlayView() <UIGestureRecognizerDelegate>
 
@@ -14,6 +16,9 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) BOOL scrubbing;
 @property (nonatomic, assign) NSTimeInterval storedDuration;
+@property (weak, nonatomic) IBOutlet UILabel *airplayLabel;
+
+@property (nonatomic, strong) MPVolumeView *volumeView;
 
 @end
 
@@ -30,7 +35,6 @@
     self.transportView.layer.masksToBounds = YES;
     
     self.subButton.hidden = YES;
-    self.airPlayButton.hidden = YES;
         
     [self.playbackButton setImage:[UIImage imageNamed:@"play_button"] forState:UIControlStateNormal];
     [self.playbackButton setImage:[UIImage imageNamed:@"pause_button"] forState:UIControlStateSelected];
@@ -57,6 +61,8 @@
     
     // Add notification for device changing orirentation
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceWillChangeOrientation:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
+    
+    [self enableAirplay];
 }
 
 - (void)dealloc {
@@ -82,6 +88,22 @@
         }];
     }
 }
+
+- (void)enableAirplay {
+    UIImage *airplayImage = [UIImage imageNamed:@"airplay"];
+    self.volumeView = [[MPVolumeView alloc] init];
+    self.volumeView.showsVolumeSlider = NO;
+    [self.volumeView setRouteButtonImage:airplayImage forState:UIControlStateNormal];
+    
+    [self.volumeView sizeToFit];
+    
+    [self.transportView addSubview:self.volumeView];
+    // layout volumeView
+    [self.transportView addConstraintsWithFormat:@"H:[v0(24)]-12-|" views:self.volumeView, nil];
+    [self.transportView addConstraint:[NSLayoutConstraint constraintWithItem:self.volumeView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.transportView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+}
+
+#pragma mark - IBActions
 
 - (IBAction)togglePlayback:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -148,6 +170,14 @@
 - (void)showControls {
     self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y + self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
     self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y - (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
+}
+
+- (void)showAirplayLabel {
+    self.airplayLabel.hidden = NO;
+}
+
+- (void)hideAirplayLabel {
+    self.airplayLabel.hidden = YES;
 }
 
 #pragma mark - Scrubber slider actions

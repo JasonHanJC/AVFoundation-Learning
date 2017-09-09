@@ -11,6 +11,7 @@
 #import "JHPlayerView.h"
 
 static const NSString *PlayerItemContext;
+static const NSString *AirplayContext;
 
 @interface JHPlayerController()
 
@@ -79,6 +80,9 @@ static const NSString *PlayerItemContext;
     self.player = [AVPlayer playerWithPlayerItem:self.playerItem];
     
     self.playerView = [[JHPlayerView alloc] initWithAVPlayer:self.player];
+    
+    // add KVO for observering airplay
+    [self.player addObserver:self forKeyPath:@"externalPlaybackActive" options:NSKeyValueObservingOptionNew context:&AirplayContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -87,7 +91,7 @@ static const NSString *PlayerItemContext;
                        context:(void *)context {
     
     // Only handle observations for the PlayerItemContext
-    if (context != &PlayerItemContext) {
+    if (context != &PlayerItemContext && context != &AirplayContext ) {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         return;
     }
@@ -128,6 +132,15 @@ static const NSString *PlayerItemContext;
                 // Not ready
                 break;
         }
+    } else if ([keyPath isEqualToString:@"externalPlaybackActive"]) {
+        
+        // toggle airplay label
+        if (self.player.isExternalPlaybackActive) {
+            [self.playerView.overlayView showAirplayLabel];
+        } else {
+            [self.playerView.overlayView hideAirplayLabel];
+        }
+        
     }
 }
 

@@ -12,6 +12,7 @@
 		962797491F4E48AB004398C4 /* hubblecast.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 962797481F4E48AB004398C4 /* hubblecast.m4v */; };
 		964782201F4FA20600A8008F /* JHOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9647821F1F4FA20600A8008F /* JHOverlayView.m */; };
 		964782241F4FA23D00A8008F /* JHOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964782231F4FA23D00A8008F /* JHOverlayView.xib */; };
+		966127161F6387ED00D24D0B /* UIView+Constraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 966127151F6387ED00D24D0B /* UIView+Constraint.m */; };
 		9679816A1F4D011400B8E6A4 /* JHPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 967981691F4D011400B8E6A4 /* JHPlayerView.m */; };
 		96A19E6D1F4BAC7700B28747 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6C1F4BAC7700B28747 /* AppDelegate.m */; };
 		96A19E701F4BAC7700B28747 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A19E6F1F4BAC7700B28747 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 		9647821E1F4FA20600A8008F /* JHOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHOverlayView.h; sourceTree = "<group>"; };
 		9647821F1F4FA20600A8008F /* JHOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHOverlayView.m; sourceTree = "<group>"; };
 		964782231F4FA23D00A8008F /* JHOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHOverlayView.xib; sourceTree = "<group>"; };
+		966127141F6387ED00D24D0B /* UIView+Constraint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIView+Constraint.h"; path = "AVPlayer/UIView+Constraint.h"; sourceTree = SOURCE_ROOT; };
+		966127151F6387ED00D24D0B /* UIView+Constraint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIView+Constraint.m"; path = "AVPlayer/UIView+Constraint.m"; sourceTree = SOURCE_ROOT; };
 		967981681F4D011400B8E6A4 /* JHPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPlayerView.h; sourceTree = "<group>"; };
 		967981691F4D011400B8E6A4 /* JHPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPlayerView.m; sourceTree = "<group>"; };
 		96A19E681F4BAC7700B28747 /* AVPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +66,8 @@
 			children = (
 				961681601F5FA4DD00C04886 /* AVAsset+Addition.h */,
 				961681611F5FA4DD00C04886 /* AVAsset+Addition.m */,
+				966127141F6387ED00D24D0B /* UIView+Constraint.h */,
+				966127151F6387ED00D24D0B /* UIView+Constraint.m */,
 			);
 			path = Catagories;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			files = (
 				96A19E701F4BAC7700B28747 /* ViewController.m in Sources */,
 				96A19E7B1F4BAC7700B28747 /* main.m in Sources */,
+				966127161F6387ED00D24D0B /* UIView+Constraint.m in Sources */,
 				964782201F4FA20600A8008F /* JHOverlayView.m in Sources */,
 				961681621F5FA4DD00C04886 /* AVAsset+Addition.m in Sources */,
 				96B4AE4A1F4D4277009B480E /* JHPlayerController.m in Sources */,
@@ -350,7 +356,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AVPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -364,7 +370,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junchenghan.app.AVPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
