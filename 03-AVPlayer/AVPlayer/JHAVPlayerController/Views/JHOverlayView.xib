@@ -57,9 +57,6 @@
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrb-51-dkr">
                                                 <rect key="frame" x="132" y="5.5" width="71.5" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="72" id="bWI-gW-LEL"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

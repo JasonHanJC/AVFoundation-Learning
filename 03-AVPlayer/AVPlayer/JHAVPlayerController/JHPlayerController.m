@@ -9,6 +9,7 @@
 #import "JHPlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "JHPlayerView.h"
+#import "AVAsset+Addition.h"
 
 static const NSString *PlayerItemContext;
 static const NSString *AirplayContext;
@@ -121,6 +122,12 @@ static const NSString *AirplayContext;
                 // Add time observer for update remaining time
                 [self addObservers];
                 
+                // set overlay view navigation item title
+                [self.playerView.overlayView setTitle:self.asset.title];
+                
+                // load media options
+                [self loadMediaOptions];
+                
                 // Ready to Play
                 [self.player play];
             }
@@ -144,7 +151,7 @@ static const NSString *AirplayContext;
     }
 }
 
-#pragma mark - Interfaces
+#pragma mark - Player control methods
 
 - (void)play {
     [self.player play];
@@ -177,6 +184,8 @@ static const NSString *AirplayContext;
     [self.player.currentItem seekToTime:CMTimeMakeWithSeconds(time, timeScale) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
 }
 
+#pragma mark - Observers
+
 - (void)addTimeObserver {
     // 0.5s interval
     CMTime interval = CMTimeMake(1.0, 2.0);
@@ -194,8 +203,6 @@ static const NSString *AirplayContext;
     [self.player removeTimeObserver:self.timeObserver];
     self.timeObserver = nil;
 }
-
-#pragma mark - private methods
 
 - (void)addObservers {
     [self addTimeObserver];
@@ -284,6 +291,25 @@ static const NSString *AirplayContext;
                 // pause the video
                 [self pause];
             });
+        }
+    }
+}
+
+- (void)loadMediaOptions {
+    
+    NSString *mediaCharacteristic = AVMediaCharacteristicLegible;
+    
+    AVMediaSelectionGroup *group = [self.asset mediaSelectionGroupForMediaCharacteristic:mediaCharacteristic];
+    
+    if (group) {
+        NSMutableArray *subtitles = [NSMutableArray array];
+        for (AVMediaSelectionOption *option in group.options) {
+            NSLog(@"%@", option.mediaType);
+            NSLog(@"%@", option.displayName);
+            
+            // note: Forced subtitles only provide subtitles when the characters speak a foreign or alien language
+            
+            [subtitles addObject:option];
         }
     }
 }

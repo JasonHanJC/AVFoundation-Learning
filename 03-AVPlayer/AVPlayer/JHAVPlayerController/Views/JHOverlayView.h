@@ -42,6 +42,7 @@
 
 - (void)showAirplayLabel;
 - (void)hideAirplayLabel;
+- (void)setTitle:(NSString *)title;
 
 @property (weak, nonatomic) id<JHOverlayViewProtocol> delegate;
 

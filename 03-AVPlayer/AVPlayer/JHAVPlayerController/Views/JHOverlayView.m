@@ -142,12 +142,12 @@
     NSInteger hours = value / 60 / 60;
     
     NSString *timeString = @"";
-//    if (hours != 0) {
-    timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long) hours, (long) minutes, (long) seconds];
-//    } else {
-//        timeString = [NSString stringWithFormat:@"%02ld:%02ld", (long) minutes, (long) seconds];
-//    }
-    
+    if (hours != 0) {
+        timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long) hours, (long) minutes, (long) seconds];
+    } else {
+        timeString = [NSString stringWithFormat:@"%02ld:%02ld", (long) minutes, (long) seconds];
+    }
+
     return timeString;
 }
 
@@ -170,6 +170,14 @@
 - (void)showControls {
     self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y + self.navigationBar.frame.size.height, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height);
     self.transportView.frame = CGRectMake(self.transportView.frame.origin.x, self.transportView.frame.origin.y - (self.transportView.frame.size.height + 10), self.transportView.frame.size.width, self.transportView.frame.size.height);
+}
+
+- (void)setTitle:(NSString *)title {
+    if (title == nil || [title isEqualToString:@""]) {
+        self.navigationItem.title = @"Playback";
+    } else {
+        self.navigationItem.title = title;
+    }
 }
 
 - (void)showAirplayLabel {
